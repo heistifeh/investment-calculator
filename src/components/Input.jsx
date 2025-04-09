@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import { formatter } from "../util/investment";
 const Input = ({ sendUserInputToParent }) => {
   const [userInput, setUserInput] = useState({
     initialInvestment: 100,
@@ -10,7 +10,7 @@ const Input = ({ sendUserInputToParent }) => {
   const handleInput = (e) => {
     setUserInput((prevState) => ({
       ...prevState,
-      [e.target.id]: e.target.value,
+      [e.target.id]: +e.target.value,
     }));
 
     sendUserInputToParent({
